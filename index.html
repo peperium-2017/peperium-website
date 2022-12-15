@@ -1,0 +1,560 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="" />
+        <meta name="author" content="" />
+        <title>Peperium</title>
+        <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet" />
+        <link href="css/styles.css" rel="stylesheet" />
+
+        <style type="text/css">
+            .bg-gray {
+                --bs-bg-opacity: 1;
+                background-color: var(--bs-gray-500) !important;
+            }
+        </style>
+
+        <script>
+            const jsonData = [
+                {
+                    "Series": 1,
+                    "Card": 1,
+                    "Creation Date": "Apr-14-2017 11:34:48 PM +UTC",
+                    "Contract": "0x648445e48093d999966375b30186D433fEF9c364",
+                    "Name": "KFPEPE",
+                    "Symbol": "kfp",
+                    "Supply": 5,
+                    "Description": "kentucky fried pepe",
+                    "IPFS hash": "QmNPecJjQpggFW3o6ZFoypMrMmLDhxH7oJfjRi1WJA47kq",
+                    "Image": true,
+                    "IPFS": true,
+                    "Locked": true,
+                    "Type": "png"
+                },
+                {
+                    "Series": 1,
+                    "Card": 2,
+                    "Creation Date": "May-02-2017 02:04:48 AM +UTC",
+                    "Contract": "0x51b41e61B654EA852679E374171F08f35119e255",
+                    "Name": "PEPESTREET",
+                    "Symbol": "PS",
+                    "Supply": 10,
+                    "Description": "The year I turned 26, as the head of my own RARE firm, I made $49 million, which really pissed me off because it was three shy of a million a week.The PEPE of Wall Street.",
+                    "IPFS hash": "QmPa25z4Ls4coXtyFKu7wPhsjJ3dnCGcrhGF9LqsSp96Rg",
+                    "Image": false,
+                    "IPFS": false,
+                    "Locked": false
+                },
+                {
+                    "Series": 1,
+                    "Card": 3,
+                    "Creation Date": "May-02-2017 03:14:13 AM +UTC",
+                    "Contract": "0xA3832b169Ac40c23d85eEb1D0c2e51FCAc5df5De",
+                    "Name": "ZENPEPE",
+                    "Symbol": "ZP",
+                    "Supply": 3,
+                    "Description": "禪",
+                    "IPFS hash": "QmThcgQnhJWYzPz7y72jf3v7DPoqW34pyPJeUVjVCrZPzM",
+                    "Image": true,
+                    "IPFS": false,
+                    "Locked": false,
+                    "Type": "jpeg"
+                },
+                {
+                    "Series": 1,
+                    "Card": 4,
+                    "Creation Date": "May-02-2017 04:35:02 AM +UTC",
+                    "Contract": "0x8B990d8bBB502eaa09AE4bAdEb8ec85Acbe7FB66",
+                    "Name": "PEPRESSIONISM",
+                    "Symbol": "PNISM",
+                    "Supply": 3,
+                    "Description": "Influenced by some of the greatest peppressionist artists, such as were PEPEMANET, PEPEPISSARO, PEPEDEGAS, PEPEMONET, and PEPERENOIR.",
+                    "IPFS hash": "QmXLZPkDaM4oqvTUk9mRJgZHzrr2NYE9Xvu7C5sPVpXXVp",
+                    "Image": true,
+                    "IPFS": true,
+                    "Locked": false,
+                    "Type": "png"
+                },
+                {
+                    "Series": 1,
+                    "Card": 5,
+                    "Creation Date": "May-04-2017 12:13:58 AM +UTC",
+                    "Contract": "0x57E62ee19ffd8f73CD978282a45a1e5ab7341c96",
+                    "Name": "PEPEBANKSY",
+                    "Symbol": "PPB",
+                    "Supply": 150,
+                    "Description": "the one and only banksy pepe",
+                    "IPFS hash": "QmapEhHjuv6uPCmappE4s2zbPGfrUR4soWHe66E6GL6EwH",
+                    "Image": true,
+                    "IPFS": true,
+                    "Locked": true,
+                    "Type": "jpeg"
+                },
+                {
+                    "Series": 1,
+                    "Card": 6,
+                    "Creation Date": "May-04-2017 12:32:09 AM +UTC",
+                    "Contract": "0xA87c5dcC2e24FACe553cFC0c04d8E22c94c117a2",
+                    "Name": "MONAPEPE",
+                    "Symbol": "MP",
+                    "Supply": 1,
+                    "Description": "Leonardo Da Cringy",
+                    "IPFS hash": "QmPXsYvAds2Cyuw6hTL12N9Gq9wWdK6m3Br3BVdNCVTYhc",
+                    "Image": true,
+                    "IPFS": true,
+                    "Locked": false,
+                    "Type": "jpeg"
+                },
+                {
+                    "Series": 1,
+                    "Card": 7,
+                    "Creation Date": "May-05-2017 07:28:46 AM +UTC",
+                    "Contract": "0xEd01ca51723C0F9ebc167e8E382A7cfA73735077",
+                    "Name": "LORDRARE",
+                    "Symbol": "LR",
+                    "Supply": 10,
+                    "Description": "LordRare, the destroyer of op's is worshiped by all rare pepe's. He rewards handsomely for sacrificial offerings.",
+                    "IPFS hash": "QmZj6acc6qMfN1T63b9ewzLfr4JrrEwzh85rwsp2fjwoyR",
+                    "Image": true,
+                    "IPFS": false,
+                    "Locked": false,
+                    "Type": "jpeg"
+                },
+                {
+                    "Series": 1,
+                    "Card": 8,
+                    "Creation Date": "May-05-2017 09:30:15 PM +UTC",
+                    "Contract": "0x99523add649D16e69E2eE913baC893e69e926444",
+                    "Name": "BASEBALLPEPE",
+                    "Symbol": "BALL",
+                    "Supply": 10,
+                    "Description": "baseball pepe",
+                    "IPFS hash": "QmQkXSTDGgWhXqpEjJ2iJWUhoM9k668WK7B2aguCcacaA3",
+                    "Image": true,
+                    "IPFS": false,
+                    "Locked": true,
+                    "Type": "jpeg"
+                },
+                {
+                    "Series": 1,
+                    "Card": 9,
+                    "Creation Date": "May-08-2017 06:34:06 AM +UTC",
+                    "Contract": "0x9F0bf0e983B227b2c026d4655B9fDF6cd435A66E",
+                    "Name": "BATPEPE",
+                    "Symbol": "BP",
+                    "Supply": 16,
+                    "Description": "He's the hero Peperium deserves, but not the one it needs right now...",
+                    "IPFS hash": "QmThrG3akTUtLD3rohRJsLRifNmCB4Ach8Ad31s4oPA6b5",
+                    "Image": true,
+                    "IPFS": true,
+                    "Locked": false,
+                    "Type": "jpeg"
+                },
+                {
+                    "Series": 1,
+                    "Card": 10,
+                    "Creation Date": "May-09-2017 08:37:29 AM +UTC",
+                    "Contract": "0x8F94BC777CB8B6876Cd2410Da3a6F796733212f5",
+                    "Name": "HOTDOGPEPE",
+                    "Symbol": "HTDG",
+                    "Supply": 10,
+                    "Description": "collector's hotdog pepe",
+                    "IPFS hash": "QmSTw3VE8f2WGcsDwiiAUn84uMhEwMe9FwPp7mhFWVFJ17",
+                    "Image": true,
+                    "IPFS": true,
+                    "Locked": true,
+                    "Type": "png"
+                },
+                {
+                    "Series": 1,
+                    "Card": 11,
+                    "Creation Date": "May-10-2017 08:34:10 AM +UTC",
+                    "Contract": "0x97E5cC2F56E08C6338AC7907E1073a8049D4bC60",
+                    "Name": "KINGRARE",
+                    "Symbol": "KING",
+                    "Supply": 3,
+                    "Description": "king of rare",
+                    "IPFS hash": "QmWWizgmv3fA1QPf4vPgfXR8t71WKRd6ayTP81cXcZ5M8Z",
+                    "Image": true,
+                    "IPFS": false,
+                    "Locked": true,
+                    "Type": "jpeg"
+                },
+                {
+                    "Series": 1,
+                    "Card": 12,
+                    "Creation Date": "May-10-2017 08:37:24 AM +UTC",
+                    "Contract": "0x20Cd103D4Ed989338E122Eb069d9cC51f497151E",
+                    "Name": "ACCEPTRARE",
+                    "Symbol": "ACC",
+                    "Supply": 250,
+                    "Description": "accept rare - the best do",
+                    "IPFS hash": "QmbTrry8QGmDL3zcBMmqzrS6xeTRfD7EDbGiB4QaMjCcp5",
+                    "Image": true,
+                    "IPFS": true,
+                    "Locked": true,
+                    "Type": "png"
+                },
+                {
+                    "Series": 1,
+                    "Card": 13,
+                    "Creation Date": "May-14-2017 04:13:17 AM +UTC",
+                    "Contract": "0xD3Fab082012b7482244379B77d9548495A029F54",
+                    "Name": "NEVERENDINGPEPE",
+                    "Symbol": "NEP",
+                    "Supply": 6,
+                    "Description": "Falkor and pepe flying high.",
+                    "IPFS hash": "QmeN56gevYaThzTPiJXngi3a1VDC1xjsp8fp9TTHoSTs8B",
+                    "Image": true,
+                    "IPFS": false,
+                    "Locked": false,
+                    "Type": "jpeg"
+                },
+                {
+                    "Series": 1,
+                    "Card": 14,
+                    "Creation Date": "May-16-2017 05:01:40 AM +UTC",
+                    "Contract": "0x38A8E6f911aB6163b663f7fa414af03c7Ab4b35b",
+                    "Name": "PEPEGOD",
+                    "Symbol": "GOD",
+                    "Supply": 1,
+                    "Description": "He is the one true god. The father, the lord and the creator of our Universe.",
+                    "IPFS hash": "QmcnuBLCBUanR87hEHFEZDXToDjzKDfsjEePqxPLBG2cDP",
+                    "Image": true,
+                    "IPFS": false,
+                    "Locked": false,
+                    "Type": "jpeg"
+                },
+                {
+                    "Series": 1,
+                    "Card": 15,
+                    "Creation Date": "May-16-2017 05:14:59 AM +UTC",
+                    "Contract": "0x08aAB3C173639a37C7E5254C2F1C153c3e3444B2",
+                    "Name": "PEPEGOLD",
+                    "Symbol": "QmPX71LV2C6t5d5UKsJRCugAKNEbTioFL3nfBghoT6Tv11",
+                    "Supply": 5,
+                    "Description": "The rare standard. Pepe Gold is the ultimate store of value.",
+                    "IPFS hash": "QmPX71LV2C6t5d5UKsJRCugAKNEbTioFL3nfBghoT6Tv11",
+                    "Image": false,
+                    "IPFS": false,
+                    "Locked": false
+                },
+                {
+                    "Series": 1,
+                    "Card": 16,
+                    "Creation Date": "May-17-2017 03:18:22 AM +UTC",
+                    "Contract": "0x76330651533B02B89c563352062265663E410923",
+                    "Name": "NEWPEPE",
+                    "Symbol": "NP",
+                    "Supply": 15,
+                    "Description": "Inspired by Piet Mondrian",
+                    "IPFS hash": "QmQv5GWLhwRGsoRKvN1bgsQBi3RHd5p4pyPaNPq71PgsaN",
+                    "Image": true,
+                    "IPFS": true,
+                    "Locked": false,
+                    "Type": "png"
+                },
+                {
+                    "Series": 1,
+                    "Card": 17,
+                    "Creation Date": "May-20-2017 04:13:31 AM +UTC",
+                    "Contract": "0x3aC136f428889E0E8d88B79940dEA547Eb7Ca00D",
+                    "Name": "PEPETTE",
+                    "Symbol": "PEPETTE",
+                    "Supply": 25,
+                    "Description": "The most beatiful of all the pepes.",
+                    "IPFS hash": "QmQjJUhzixMpbn8RSc6nB8fD5e2XSwb9wuTAf4gqfPd4dJ",
+                    "Image": true,
+                    "IPFS": false,
+                    "Locked": false,
+                    "Type": "jpeg"
+                },
+                {
+                    "Series": 1,
+                    "Card": 18,
+                    "Creation Date": "May-23-2017 07:48:15 PM +UTC",
+                    "Contract": "0x2523f621ce57E0503c114FbD0181B4c385165513",
+                    "Name": "VAPORPEPE",
+                    "Symbol": "VP",
+                    "Supply": 7,
+                    "Description": "pepe decrypts wannacry . consciousness man .",
+                    "IPFS hash": "QmazhPv3ZyPuGSJP7GZGkpV3GjnFeRd7L3rGGVBNHPwQEU",
+                    "Image": false,
+                    "IPFS": false,
+                    "Locked": true
+                },
+                {
+                    "Series": 2,
+                    "Card": 1,
+                    "Creation Date": "Aug-27-2017 07:51:59 PM +UTC",
+                    "Contract": "0x5921F43985a027ba74EE110b77DcE09B96De943E",
+                    "Name": "PEPESTENCIL",
+                    "Symbol": "STN",
+                    "Supply": 10,
+                    "Description": "Spray paint on black canvas",
+                    "IPFS hash": "QmRA7z9FGcMrMDQ8B5QhvAQLD2Cpa6WKKAvdVFT4HbANTG",
+                    "Image": true,
+                    "IPFS": true,
+                    "Locked": false,
+                    "Type": "jpeg"
+                },
+                {
+                    "Series": 2,
+                    "Card": 2,
+                    "Creation Date": "Oct-02-2017 04:25:42 AM +UTC",
+                    "Contract": "0x60E762fA4FCB2bA472B055D64fEbBFccA000ED6C",
+                    "Name": "GlitchPepe",
+                    "Symbol": "GP",
+                    "Supply": 1000,
+                    "Description": "Stare at it too long to experience a seizure",
+                    "IPFS hash": "QmYMDDB3jcyN2sEByiK6xiQYSiNk3GVJqoUXdGJKcnoC2V",
+                    "Image": true,
+                    "IPFS": true,
+                    "Locked": false,
+                    "Type": "gif"
+                },
+                {
+                    "Series": 2,
+                    "Card": 3,
+                    "Creation Date": "Oct-09-2017 09:58:05 PM +UTC",
+                    "Contract": "0x6160A19EC62392ADf43Cc22c89C0193432216417",
+                    "Name": "PEPERIUMCLASSIC",
+                    "Symbol": "PPC",
+                    "Supply": 100000,
+                    "Description": "Pepe - Uncensored",
+                    "IPFS hash": "QmYsUg4Li44A15BzuvDi5yaWhqqXZtHJH44CedHjhk2Cp5",
+                    "Image": true,
+                    "IPFS": true,
+                    "Locked": true,
+                    "Burned": 99999,
+                    "Type": "jpeg"
+                },
+                {
+                    "Series": 2,
+                    "Card": 4,
+                    "Creation Date": "Oct-09-2017 09:58:43 PM +UTC",
+                    "Contract": "0x4B5CF00AE4D5b1a8DC4E0D81f28e373aAdbe59d3",
+                    "Name": "CHILLPEPE",
+                    "Symbol": "CPP",
+                    "Supply": 1,
+                    "Description": "",
+                    "IPFS hash": "QmaHDZ6X2QpEctQCDqd4uG113DCfLaJTFrC1MaubLNjwbR",
+                    "Image": true,
+                    "IPFS": true,
+                    "Locked": true,
+                    "Type": "png"
+                },
+                {
+                    "Series": 2,
+                    "Card": 5,
+                    "Creation Date": "Oct-09-2017 10:48:43 PM +UTC",
+                    "Contract": "0xbA7101b0aaf0F1cF655240ed519C4EcAc3394022",
+                    "Name": "RUINSOFPEPE",
+                    "Symbol": "RPP",
+                    "Supply": 1,
+                    "Description": "",
+                    "IPFS hash": "QmW7NB2SEyVRxnDSo8cxZ686c5wgeiJfibfda2kE8G62Zg",
+                    "Image": true,
+                    "IPFS": false,
+                    "Locked": true,
+                    "Type": "jpg"
+                },
+                {
+                    "Series": 2,
+                    "Card": 6,
+                    "Creation Date": "Oct-09-2017 10:52:33 PM +UTC",
+                    "Contract": "0xDaa9CecfE002536574D7958c50950F8f545a9Bd4",
+                    "Name": "GIGERPEPECITY",
+                    "Symbol": "GPC",
+                    "Supply": 1,
+                    "Description": "",
+                    "IPFS hash": "QmVXFfbRyRzJBqh71QJHDUwCe69Wi7Rb4DTE8u6HnJUT1N",
+                    "Image": false,
+                    "IPFS": false,
+                    "Locked": true
+                },
+                {
+                    "Series": 2,
+                    "Card": 7,
+                    "Creation Date": "Oct-09-2017 10:53:40 PM +UTC",
+                    "Contract": "0xF10e9228221777920d413E74Aa40a54b33886Ac4",
+                    "Name": "PEPEZEUSLIGHT",
+                    "Symbol": "PZL",
+                    "Supply": 1,
+                    "Description": "",
+                    "IPFS hash": "QmSRXeC8Cig6pstNN5VRUhWxtxhGrBUnpkWZ8bGxP76qrF",
+                    "Image": true,
+                    "IPFS": false,
+                    "Locked": true,
+                    "Type": "jpeg"
+                },
+                {
+                    "Series": 2,
+                    "Card": 8,
+                    "Creation Date": "Oct-09-2017 10:54:59 PM +UTC",
+                    "Contract": "0x11266bF3498FaBe08707C16F3BA7fbF526Cf9f98",
+                    "Name": "CRIMEANDPEPESHMENT",
+                    "Symbol": "CRP",
+                    "Supply": 1,
+                    "Description": "",
+                    "IPFS hash": "QmUKnaF7gsVNgMBvmPTHQKoxZ4yB1o498q7NZLuRcmx94p",
+                    "Image": true,
+                    "IPFS": true,
+                    "Locked": true,
+                    "Type": "png"
+                },
+                {
+                    "Series": 2,
+                    "Card": 9,
+                    "Creation Date": "Oct-09-2017 10:55:25 PM +UTC",
+                    "Contract": "0xa9DDec7e4B31D63Aa9fEaf77190b242070483B24",
+                    "Name": "PEPENEMSTEAK",
+                    "Symbol": "PNEM",
+                    "Supply": 1,
+                    "Description": "",
+                    "IPFS hash": "QmXDuNGWPEzS3T1eLv2fCoTkqkgZrc68TpEJUnsoumwcmg",
+                    "Image": true,
+                    "IPFS": true,
+                    "Locked": true,
+                    "Type": "jpeg"
+                },
+                {
+                    "Series": 2,
+                    "Card": 10,
+                    "Creation Date": "Oct-09-2017 10:56:44 PM +UTC",
+                    "Contract": "0x5443F7D80875AFD18737F2A5322161582373cE5e",
+                    "Name": "RPALPHASTIK",
+                    "Symbol": "TIK",
+                    "Supply": 25,
+                    "Description": "",
+                    "IPFS hash": "QmcpLiXGBFveVkza6ZrziirXnRsBWyffTy7io1a1atFMUK",
+                    "Image": true,
+                    "IPFS": true,
+                    "Locked": true,
+                    "Type": "jpeg"
+                },
+                {
+                    "Series": 2,
+                    "Card": 11,
+                    "Creation Date": "Oct-09-2017 10:57:52 PM +UTC",
+                    "Contract": "0x0273b0846a9877af88b3F080fB963d8f51679996",
+                    "Name": "UNDEADPEPE",
+                    "Symbol": "UDP",
+                    "Supply": 300,
+                    "Description": "",
+                    "IPFS hash": "QmSR3np1ZjTLvVPwfQRywoNcXDJAHgiHGz2bYunzmxfi4B",
+                    "Image": true,
+                    "IPFS": true,
+                    "Locked": true,
+                    "Type": "jpeg"
+                },
+                {
+                    "Series": 2,
+                    "Card": 12,
+                    "Creation Date": "Oct-19-2017 07:48:28 AM +UTC",
+                    "Contract": "0xC8a1464d5936C9dcB033dAA7fc198215E7538292",
+                    "Name": "MHV",
+                    "Symbol": "MHV",
+                    "Supply": 100,
+                    "Description": "MHV",
+                    "IPFS hash": "QmezRjeNT8dXoVHjihxLZt9DQUpX3wDfKZPSgcEdorecPy",
+                    "Image": true,
+                    "IPFS": true,
+                    "Locked": false,
+                    "Type": "png"
+                },
+                {
+                    "Series": 2,
+                    "Card": 13,
+                    "Creation Date": "Oct-20-2017 07:41:09 PM +UTC",
+                    "Contract": "0x7469580d483e9832B9C68676b5EA17141bE97df2",
+                    "Name": "PBJCAT",
+                    "Symbol": "YUM",
+                    "Supply": 100,
+                    "Description": "cat peanut butter jelly sandwich meme",
+                    "IPFS hash": "QmYShHHTU87siNdNjy8wbb6Stnx5XFMF8uzwuHfCJHUBYm",
+                    "Image": true,
+                    "IPFS": true,
+                    "Locked": false,
+                    "Type": "gif"
+                }
+            ]
+        </script>
+    </head>
+    <body>
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <div class="container px-4 px-lg-5">
+                <a class="navbar-brand" href="#!">Peperium</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-4">
+                        <li class="nav-item"><a class="nav-link active" aria-current="page" href="#cards">Cards</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#docs">Docs</a></li>
+                        
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+        <header class="bg-dark py-2">
+            <div class="container px-4 px-lg-5 my-5">
+                <div class="text-center text-white">
+                    <h1 class="display-4 fw-bolder">Peperium</h1>
+
+                    <p class="lead fw-normal text-white-50 mb-0">
+                        Historical meme project about pepes, on the Ethereum blockchain.<br />
+                        ⭐️ First project to utilize IPFS
+                    </p>
+                    <p class="lead fw-normal text-white-50 mb-0">                        
+                        When you see a green checkmark ✅ that means there's an IPFS image available that matches with the on-chain ipfs hash.</li>
+                        When you see a lock that means the asset is locked and the supply is finite. If not, it might be possible the asset owner can mint more</li>
+                    </p>
+                </div>
+            </div>
+        </header>
+
+        <section id="cards" class="py-5">
+            <div class="container px-4 px-lg-5 mt-5">
+                <!-- gets filled in js/scripts.js-->
+            </div>
+        </section>
+
+        <section id="docs">
+            <div class="container px-4 px-lg-5 mt-5">
+
+
+                <h4>Announcements</h4>
+
+                <ul>
+                    <li><a href="https://bitcointalk.org/index.php?topic=1831254.0;all">Bitcointalk (March 17, 2017) [ANN] Peperium - fully decentralized rare pepe card gallery and exchange</a></li>
+                    <li><a href="https://web.archive.org/web/20170612205603/https://forum.ethereum.org/discussion/11552/announcing-peperium-rare-pepe-and-meme-trading-on-the-ethereum-blockchain">Ethereum forum (March 18, 2017) Announcing PEPERIUM - Rare Pepe and Meme Trading on the Ethereum blockchain</a></li>
+                    <li><a href="https://www.reddit.com/r/ethereum/comments/60gizc/announcing_peperium_rare_pepe_and_meme_trading_on/">Reddit (March 20, 2017) Announcing PEPERIUM - Rare Pepe and Meme Trading on the Ethereum blockchain</a></li>
+                    <li><a href="https://bitcointalk.org/index.php?topic=1858910.0;all">Bitcointalk (April 07, 2017) Introducing PEPERIUM - pepe and meme market on Ethereum</a></li>
+                    <li><a href="https://bitcointalk.org/index.php?topic=1859922.0;all">Bitcointalk (April 07, 2017) [ANN] [RARE] PEPERIUM - meme trading on Ethereum blockchain</a></li>
+                </ul>
+
+                <h4>Articles Peperium is mentioned in</h4>
+                <ul>
+                    <li><a href="https://www.michigandaily.com/arts/non-fungible-tokens-a-crypto-disaster-in-progress/">Non-fungible tokens: A crypto disaster in progress</a></li>
+                    <li><a href="https://gnars.com/history-of-nfts/">The Birth of a New Discipline: The History of NFT Art</a></li>
+                    <li><a href="https://nfttimeline.com/">NFT Timeline</a></li>
+                    <li><a href="https://dmarket.com/blog/the-beginning-of-nft-era/">When Did NFT Start? | The Beginning of NFT Era</a></li>
+                    <li><a href="https://andrewsteinwold.substack.com/p/the-history-of-non-fungible-tokens">The History of Non-Fungible Tokens (NFTs)</a></li>
+                    <li><a href="https://1millionnfts.medium.com/a-brief-history-of-the-nft-and-the-market-prospects-vol-2-7db659a998fd">A brief history of the NFT and the market prospects [vol. 2]</a></li>
+                    <li><a href="https://nonfungible.com/news/utility/the-history-of-nfts-on-ethereum">The History of NFTs on Ethereum</a></li>
+                </ul>
+            </div>
+        </section>
+
+        <footer class="py-5 bg-dark">
+            <div class="container"><p class="m-0 text-center text-white">Copyright &copy; Your Website 2022</p></div>
+        </footer>
+        
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+        
+        <script src="js/scripts.js"></script>
+    </body>
+</html>
