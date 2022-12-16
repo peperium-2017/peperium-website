@@ -13,7 +13,8 @@ jsonData.forEach(asset => {
         CurrentSeries = Series
     }
 
-    html += `<div class="col mb-5">
+    html += `
+    <div class="col mb-5">
         <div class="card h-100">
 
             ${IPFS ? `<img class="card-img-top" src="assets/ipfs/${Name}.${Type}" alt="${Name}" />` : 
@@ -32,7 +33,88 @@ jsonData.forEach(asset => {
                 </div>
             </div>
             <div class="card-footer p-4 pt-0 border-top-0 bg-gray">
-                <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="https://etherscan.io/token/${Contract}">View on etherscan</a></div>
+                <div class="d-grid gap-2">
+                    <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#modal${Name}">
+                        Show more info
+                    </button>
+
+                    <a class="btn btn-outline-dark mt-auto" href="https://etherscan.io/token/${Contract}">View on etherscan</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="modal fade" id="modal${Name}" tabindex="-1" aria-labelledby="modal${Name}" aria-hidden="true" style="display: none;">
+            <div class="modal-dialog modal-xl">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h1 class="modal-title fs-5" id="gridModalLabel">S${Series}C${Card} - ${Name}</h1>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    
+                    <div class="modal-body">
+                        <div>
+                            <div class="row">
+                                <div class="col-md-4">
+                                    Name
+                                </div>
+                                
+                                <div class="col-md-8">
+                                    ${Name}
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-4">
+                                    Symbol
+                                </div>
+                                
+                                <div class="col-md-8">
+                                    ${Symbol}
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-4">
+                                    Description
+                                </div>
+                                
+                                <div class="col-md-8">
+                                    ${Description}
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-4">
+                                    Creation Date
+                                </div>
+                                
+                                <div class="col-md-8">
+                                    ${CreationDate}
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-4">
+                                    IPFS Hash
+                                </div>
+                                
+                                <div class="col-md-8">
+                                    ${IPFS ? '' : `Unfortunately this IPFS hash isn't online anymore, but this is the on-chain hash`}
+                                    <i class="bi bi-caret-right-square-fill"></i> <a class="link-dark" href="https://ipfs.io/ipfs/${IPFSHash}" target="_blank">${IPFSHash}</a>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-4">
+                                    Contract address
+                                </div>
+
+                                <div class="col-md-8">
+                                    <i class="bi bi-caret-right-square-fill"></i> <a class="link-dark" href="https://etherscan.io/address/${Contract}" target="_blank">${Contract}</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    </div>
+                </div>
             </div>
         </div>
     </div>`
@@ -41,3 +123,10 @@ jsonData.forEach(asset => {
 html += '</div>'
 
 document.querySelector('#cards .container').innerHTML = html
+
+const myModal = document.getElementById('myModal')
+const myInput = document.getElementById('myInput')
+
+myModal.addEventListener('shown.bs.modal', () => {
+    myInput.focus()
+})
