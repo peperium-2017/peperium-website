@@ -1,7 +1,7 @@
 let CurrentSeries = 1
 let html = `<div class="mb-3"><h2>Series 1</h2></div>
             <div class="row gx-4 gx-lg-5 row-cols-1 row-cols-md-3 row-cols-xl-4 justify-content-center">`
-let tableHtml = `<table class="table table-striped"><thead><tr>
+let tableHtml = `<div class="table-responsive"><table class="table table-striped"><thead><tr>
                     <th>Series</th>
                     <th>Card</th>
                     <th>Name</th>
@@ -149,7 +149,7 @@ jsonData.forEach(asset => {
 })
 
 html += '</div>'
-tableHtml += `</tbody></table>`
+tableHtml += `</tbody></table></div>`
 
 document.querySelector('#cards .container').innerHTML = html
 document.querySelector('#technical #table-container').innerHTML = tableHtml
