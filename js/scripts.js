@@ -153,10 +153,3 @@ tableHtml += `</tbody></table></div>`
 
 document.querySelector('#cards .container').innerHTML = html
 document.querySelector('#technical #table-container').innerHTML = tableHtml
-
-const myModal = document.getElementById('myModal')
-const myInput = document.getElementById('myInput')
-
-myModal.addEventListener('shown.bs.modal', () => {
-    myInput.focus()
-})
