@@ -6,13 +6,14 @@ let tableHtml = `<div class="table-responsive"><table class="table table-striped
                     <th>Card</th>
                     <th>Name</th>
                     <th>Symbol</th>
+                    <th>Decimals</th>
                     <th>CreationDate</th>
                     <th>Supply</th>
                     <th>Contract</th>
                 </tr></thead><tbody>`
 
 jsonData.forEach(asset => {
-    const { Card, Contract, ['Creation Date']: CreationDate, Description, IPFS, ['IPFS hash']: IPFSHash, Image, Locked, Name, Series, Supply, Symbol, Type, Burned } = asset
+    const { Card, Contract, ['Creation Date']: CreationDate, Description, IPFS, ['IPFS hash']: IPFSHash, Image, Locked, Name, Series, Supply, Symbol, Type, Burned, Decimals } = asset
 
     if(CurrentSeries !== Series) {
         html += `</div>
@@ -39,6 +40,10 @@ jsonData.forEach(asset => {
                 <div class="text-center">
                     <h5 class="fw-bolder">${Series === 'Fake Peperium' ? Series : `S${Series}C${Card}`}<br />${Name}</h5>
                     supply: ${Supply}
+                    ${Decimals > 0 ? `<br />decimals: ${Decimals}` : ''}
+                    ${Series === 'Fake Peperium' ? `<br /><div title="${`${Name} image dates back to 2017, but was uploaded to IPFS in 2023`}" class="bg-primary text-white pt-1 pb-2 mt-3"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-info-circle-fill" viewBox="0 0 16 16">
+                    <path d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zm.93-9.412-1 4.705c-.07.34.029.533.304.533.194 0 .487-.07.686-.246l-.088.416c-.287.346-.92.598-1.465.598-.703 0-1.002-.422-.808-1.319l.738-3.468c.064-.293.006-.399-.287-.47l-.451-.081.082-.381 2.29-.287zM8 5.5a1 1 0 1 1 0-2 1 1 0 0 1 0 2z"></path>
+                  </svg> IPFS uploaded in 2023</div>` : ''}
                 </div>
             </div>
             <div class="card-footer p-4 pt-0 border-top-0 bg-gray">
@@ -56,7 +61,7 @@ jsonData.forEach(asset => {
             <div class="modal-dialog modal-xl">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h1 class="modal-title fs-5" id="gridModalLabel">S${Series}C${Card} - ${Name}</h1>
+                        <h1 class="modal-title fs-5" id="gridModalLabel">${Series === 'Fake Peperium' ? Series : `S${Series}C${Card}`} - ${Name}</h1>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     
@@ -78,6 +83,15 @@ jsonData.forEach(asset => {
                                 
                                 <div class="col-md-8">
                                     ${Symbol}
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-4">
+                                    Decimals
+                                </div>
+                                
+                                <div class="col-md-8">
+                                    ${Decimals > 0 ? `<span class="text-warning"><i class="bi bi-exclamation-triangle-fill"></i></span> This card is divisible, so make sure to work with <strong>${Decimals} decimals</strong> when buying/wrapping/sending etc` : Decimals} 
                                 </div>
                             </div>
                             <div class="row">
@@ -104,7 +118,7 @@ jsonData.forEach(asset => {
                                 </div>
                                 
                                 <div class="col-md-8">
-                                    ${IPFS ? '' : `<span class="text-warning"><i class="bi bi-exclamation-triangle-fill"></i></span> Unfortunately this IPFS hash isn't online anymore, but this is the on-chain hash<br />`}
+                                    ${Series === 'Fake Peperium' ? `${Name} image dates back to 2017, but was uploaded to IPFS in 2023<br />` : IPFS ? '' : `<span class="text-warning"><i class="bi bi-exclamation-triangle-fill"></i></span> Unfortunately this IPFS hash isn't online anymore, but this is the on-chain hash<br />`}
                                     <i class="bi bi-caret-right-square-fill"></i> <a class="link-dark" href="https://ipfs.io/ipfs/${IPFSHash}" target="_blank">${IPFSHash}</a>
                                 </div>
                             </div>
@@ -142,6 +156,7 @@ jsonData.forEach(asset => {
         <td>${Card}</td>
         <td>${Name}</td>
         <td>${Symbol.length > 7 ? `<span title="${Symbol}">${Symbol.substring(0, 7)}..</span>` : Symbol}</td>
+        <td>${Decimals}</td>
         <td style="white-space: nowrap;">${CreationDate.replace(/ /g, '&nbsp;')}</td>
         <td>${Supply}</td>
         <td><a target="_blank" href="https://etherscan.io/address/${Contract}">${Contract}</a></td>
