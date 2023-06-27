@@ -1,0 +1,2 @@
+"use strict";(self.webpackChunkcurio_cards=self.webpackChunkcurio_cards||[]).push([[954],{3177:function(t,a,l){l.r(a);var s=l(7294),r=l(4519);a.default=function(t){var a=t.data,l=a.allCards,e=a.allArtists;console.log(l);var o=t.location.state?t.location.state.artistFilter:null,c=t.location.state?t.location.state.sort:null;return s.createElement(r.Z,{allCards:l,allArtists:e,selectedAddress:t["*"],artistFilter:o,sort:c,location:t.location})}}}]);
+//# sourceMappingURL=component---src-pages-address-jsx-0af3c00866a1da50167e.js.map

@@ -1,0 +1,2 @@
+"use strict";(self.webpackChunkcurio_cards=self.webpackChunkcurio_cards||[]).push([[955],{2132:function(t,a,l){l.r(a);var e=l(7294),r=l(4519);a.default=function(t){var a=t.data,l=a.allCards,s=a.allArtists,o=t.location.state?t.location.state.artistFilter:null,c=t.location.state?t.location.state.sort:null;return e.createElement(r.Z,{allCards:l,allArtists:s,selectedCardNumber:t.pageContext.Number,artistFilter:o,sort:c,location:t.location})}}}]);
+//# sourceMappingURL=component---src-pages-card-cards-json-number-jsx-24a10fcd5f837fd8f7fe.js.map
