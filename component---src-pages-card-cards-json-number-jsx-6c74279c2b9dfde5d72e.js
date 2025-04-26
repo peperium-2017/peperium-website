@@ -1,2 +1,0 @@
-"use strict";(self.webpackChunkpeperium=self.webpackChunkpeperium||[]).push([[955],{2132:function(e,t,a){a.r(t);var r=a(7294),l=a(5338);t.default=function(e){var t=e.data.allCards,a=e.location.state?e.location.state.sort:null;return r.createElement(l.Z,{allCards:t,selectedCardNumber:e.pageContext.Number,sort:a,location:e.location})}}}]);
-//# sourceMappingURL=component---src-pages-card-cards-json-number-jsx-6c74279c2b9dfde5d72e.js.map
